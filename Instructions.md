@@ -40,7 +40,7 @@ Now, mount the loopback device:
 
 <code>sudo mkdir /mnt/boot</code>
 
-<code>sudo mount /dev/name of loopback device]p1 /mnt/boot</code>
+<code>sudo mount /dev/[name of loopback device]p1 /mnt/boot</code>
 
 By default, loopback devices are mounted as noexec, meaning that you cannot execute commands within them. Remount the device with the ‘exec’ and ‘dev’ flags to remove this restriction: 
 
