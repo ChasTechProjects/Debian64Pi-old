@@ -72,7 +72,7 @@ If you plan on using this image on a USB stick or hard drive rather than a micro
 
 <code>proc /proc proc defaults 0 0</code>
 
-<code>/dev/sda1 /boot vfat defaults 0 2</code
+<code>/dev/sda1 /boot vfat defaults 0 2</code>
 
 <code>/dev/sda2 / ext4 defaults,noatime 0 1</code>
 
