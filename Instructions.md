@@ -34,9 +34,13 @@ If you don’t have GParted installed, install the gparted package with apt. The
 
 After that, you’ll need to create a partition table and then create partitions. Select the unallocated space on the loopback device, and click on the Device menu, and then create a partition table. Leave the partition table type as msdos. The first partition must be formatted as FAT32 or FAT16 and will contain the bootloader files needed for the Pi to boot. The second one must be formatted as ext4 and will contain the Debian filesystem. Apply the operations and exit GParted. 
 
-Now, mount the loopback device partition containing the ext4 partition. 
+Now, mount the loopback device:
 
 <code>sudo mount /dev/[name of loopback device]p2 /mnt</code>
+
+<code>sudo mkdir /mnt/boot</code>
+
+<code>sudo mount /dev/name of loopback device]p1 /mnt/boot</code>
 
 By default, loopback devices are mounted as noexec, meaning that you cannot execute commands within them. Remount the device with the ‘exec’ and ‘dev’ flags to remove this restriction: 
 
