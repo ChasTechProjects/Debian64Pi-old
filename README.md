@@ -24,4 +24,9 @@ Image does not include a desktop environment, but one can be installed with one 
 <code>sudo apt install kde-plasma-desktop</code>
 
 <code>sudo apt install lxqt</code>
+ 
+<code>sudo apt install mate-desktop</code>
 
+## Pre-release image
+
+You can download a pre-release image from the releases section of this repository. The SHA256 hash on the release description is the hash of the archive, NOT the image file itself.
