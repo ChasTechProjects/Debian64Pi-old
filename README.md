@@ -14,6 +14,7 @@ This is a 64-bit Debian Stretch image that works on the Raspberry Pi 3. It is a 
 
 *Pi 3's built in WiFi currently not working, despite kernel modules including drivers for it were installed.
 
+## Desktop Environment
 Image does not include a desktop environment, but one can be installed with one of the following commands:
 
 <code>sudo apt install xfce4</code>
