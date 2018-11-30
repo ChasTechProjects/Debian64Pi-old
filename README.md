@@ -17,7 +17,10 @@ This is a 64-bit Debian Stretch image that works on the Raspberry Pi 3. It is a 
 Image does not include a desktop environment, but one can be installed with one of the following commands:
 
 <code>sudo apt install xfce4</code>
+
 <code>sudo apt install lxde</code>
+
 <code>sudo apt install kde-plasma-desktop</code>
+
 <code>sudo apt install lxqt</code>
 
