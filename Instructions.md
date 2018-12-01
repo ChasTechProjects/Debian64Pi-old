@@ -118,6 +118,6 @@ Now, flash the Debian image file to your Pi’s microSD card or USB storage devi
 
 Once you’ve found out the device name of your storage device, flash the image file to it with the following command: 
 
-<code>sudo dd if=debian-rpi3.img of=/dev/<device name> bs=4M status=progress</code>
+<code>sudo dd if=debian-rpi3.img of=/dev/[device name] bs=4M status=progress</code>
 
 Once the image has finished being flashed, remove the storage device from your PC and put it into the Pi, and plug in the Pi’s power supply. The Pi should boot to the login prompt, where you can sign into the user account you created earlier. 
