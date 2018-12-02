@@ -8,7 +8,7 @@ This is a 64-bit Debian Stretch image that works on the Raspberry Pi 3. It is a 
 
 *XFCE desktop loaded successfully and can load applications such as Chromium and LibreOffice.
 
-*Multiarch in apt works -- can add armhf as an alternative architecture and load armhf programs.
+*Multiarch in dpkg works -- can add armhf as a secondary architecture and load armhf programs.
 
 *Snaps can be installed after installing snapd.
 
@@ -25,7 +25,11 @@ Image does not include a desktop environment, but one can be installed with one 
 
 <code>sudo apt install lxqt</code>
  
-<code>sudo apt install mate-desktop</code>
+<code>sudo apt install mate-desktop-environment</code>
+
+If, after you've installed a desktop environment and rebooted, you still end up at the text login screen, it means that a display manager did not come with the desktop environment you installed. Fix this by running:
+
+<code>sudo apt install lightdm</code>
 
 ## Pre-release image
 
