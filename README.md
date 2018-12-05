@@ -1,36 +1,30 @@
 # Debian64Pi
 64-bit Debian Stretch for the Raspberry Pi 3
 
-This is a 64-bit Debian Stretch image that works on the Raspberry Pi 3. It is a minimal image built upon the Debian ARM64 base but with a kernel and firmware that works on the Raspberry Pi 3.
+These images are various flavours of Debian Stretch that run on the Pi. These are built upon the Debian ARM64 base and are not based on Raspbian. These images will work on the Pi 3B, 3B+, and revision 1.2 of the Pi 2.
 
 ## Status
-*Keyboard, mouse, and Ethernet are working.
+*Keyboard, mouse, Wi-Fi, and Ethernet are working.
 
-*XFCE desktop loaded successfully and can load applications such as Chromium and LibreOffice.
+*MATE desktop loaded successfully and can load applications such as Chromium and LibreOffice.
 
 *Multiarch in dpkg works -- can add armhf as a secondary architecture and load armhf programs.
 
 *Snaps can be installed after installing snapd.
 
-*Pi 3's built in WiFi currently not working, despite kernel modules including drivers for it were installed.
-
 ## Desktop Environment
-Image does not include a desktop environment, but one can be installed with one of the following commands:
+Currently, an image with the MATE desktop is available from the Releases section of this page. I plan on releasing images pre-loaded with the following desktop environments in the future:
 
-<code>sudo apt install xfce4</code>
+*LXDE
 
-<code>sudo apt install lxde</code>
+*LXQT
 
-<code>sudo apt install kde-plasma-desktop</code>
+*KDE Plasma
 
-<code>sudo apt install lxqt</code>
- 
-<code>sudo apt install mate-desktop-environment</code>
+*XFCE 
 
-If, after you've installed a desktop environment and rebooted, you still end up at the text login screen, it means that a display manager did not come with the desktop environment you installed. Fix this by running:
+## Troubleshooting
 
-<code>sudo apt install lightdm</code>
+### My Pi hangs on the rainbow screen.
 
-## Pre-release image
-
-You can download a pre-release image from the releases section of this repository. The SHA256 hash on the release description is the hash of the archive, NOT the image file itself.
+This is the issue you face when you are using an unsupported Pi model. Your Pi model MUST have the BCM2837 SoC for this image to work. 
