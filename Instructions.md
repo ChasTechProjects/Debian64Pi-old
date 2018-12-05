@@ -46,13 +46,15 @@ By default, loopback devices are mounted as noexec, meaning that you cannot exec
 
 <code>sudo mount -i -o remount,exec,dev /mnt</code>
 
+<code>sudo mount -i -o remount,exec,dev /mnt</code>
+
 Now, install a minimal Debian system onto the ext4 partition. If you’re building on ARM64, run: 
 
-<code>sudo debootstrap stretch --arch=arm64 /mnt</code>
+<code>sudo debootstrap --arch=arm64 stretch /mnt</code>
 
 If you’re building on x64, run: 
 
-<code>sudo qemu-debootstrap stretch --arch=arm64 /mnt</code>
+<code>sudo qemu-debootstrap --arch=arm64 stretch /mnt</code>
 
 This will take a bit of time depending on your internet connection. 
 
