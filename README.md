@@ -13,15 +13,13 @@ These images are various flavours of Debian Stretch that run on the Pi. These ar
 *Snaps can be installed after installing snapd.
 
 ## Desktop Environment
-Currently, an image with the MATE desktop is available from the Releases section of this page. I plan on releasing images pre-loaded with the following desktop environments in the future:
+Currently, images with the MATE and XFCE desktop environments are available from the Releases section of this page. I plan on releasing images pre-loaded with the following desktop environments in the future:
 
 *LXDE
 
 *LXQT
 
 *KDE Plasma
-
-*XFCE 
 
 ## Troubleshooting
 
