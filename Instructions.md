@@ -46,8 +46,6 @@ By default, loopback devices are mounted as noexec, meaning that you cannot exec
 
 <code>sudo mount -i -o remount,exec,dev /mnt</code>
 
-<code>sudo mount -i -o remount,exec,dev /mnt</code>
-
 Now, install a minimal Debian system onto the ext4 partition. If you’re building on ARM64, run: 
 
 <code>sudo debootstrap --arch=arm64 stretch /mnt</code>
@@ -58,13 +56,27 @@ If you’re building on x64, run:
 
 This will take a bit of time depending on your internet connection. 
 
-Once it’s done, use systemd-nspawn to chroot into your ext4 filesystem. 
+Once it’s done, chroot into your ext4 filesystem:
 
-<code>sudo systemd-nspawn -D /mnt</code>
+<code>sudo mount -o bind /proc /mnt/proc</code>
 
-Install ca-certificates and sudo packages:
+<code>sudo mount -o bind /sys /mnt/sys</code>
 
-<code>apt install ca-certificates sudo</code>
+<code>sudo mount -o bind /dev /mnt/dev</code>
+
+<code>sudo mount -o bind /dev/pts /mnt/dev/pts</code>
+
+<code>sudo cp /etc/resolv.conf /mnt/etc/resolv.conf</code>
+
+<code>sudo chroot /mnt</code>
+
+Install ca-certificates, dbus, sudo packages:
+
+<code>apt install ca-certificates dbus sudo</code>
+
+Restart the dbus service:
+
+<code>service dbus restart</code>
 
 Now, replace /etc/fstab with the following: 
 
@@ -82,6 +94,12 @@ If you plan on using this image on a USB stick or hard drive rather than a micro
 
 <code>/dev/sda2 / ext4 defaults,noatime 0 1</code>
 
+Install firmware and networking packages:
+
+<code>apt install wpasupplicant wireless-tools firmware-atheros firmware-brcm80211 firmware-libertas firmware-misc-nonfree firmware-realtek dhcpcd5 net-tools</code>
+
+Some of the WiFi firmware included in the firmware-brcm80211 package are incompatible with the Pi. Pi-compatible WiFi drivers can be downloaded by following the <a href="https://wiki.ubuntu.com/ARM/RaspberryPi#WiFi">instructions</a> on the Ubuntu Wiki.
+
 Now, run the following commands to enable networking: 
 
 <code>systemctl enable systemd-networkd.service</code>
@@ -93,6 +111,22 @@ After that, create a user. If you’re creating an image for distribution purpos
 <code>adduser [username]</code>
 
 <code>usermod –aG sudo [username]</code>
+
+By default, debootstrap sets the hostname of your filesystem to the same hostname as the host you're building on. To change your image's hostname to something else, run the following:
+
+<code>nano /etc/hostname</code>
+
+and replace your host's hostname with something else (such as debian-rpi3).
+
+You may optionally install a desktop environment as well:
+
+<code>apt install xfce4 # For XFCE</code>
+
+<code>apt install lxde # For LXDE</code>
+
+<code>apt install mate-desktop-environment # For MATE</code>
+
+<code>apt install kde-plasma-desktop # For KDE Plasma</code>
 
 Once done, exit the chroot environment with the ‘exit’ command. 
 
